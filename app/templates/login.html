@@ -1,0 +1,129 @@
+<!-- extend base layout -->
+<!-- Each form.VARIABLENAME is an attribute of the form that was passed into it when this template was rendered -->
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Welcome valued customer!</h1>
+  <form action="" method="post" name="login">
+      {{ form.hidden_tag() }}
+      <p>
+          Please enter your first name:<br>
+          {{ form.first_name(size=80) }}<br>
+          {% for error in form.first_name.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+          {% endfor %}<br>
+      </p>
+
+      <p>
+          Please enter your last name:<br>
+          {{ form.last_name(size=80) }}<br>
+          {% for error in form.last_name.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+          {% endfor %}<br>
+      </p>
+
+      <p>
+          Please enter your email:<br>
+          {{ form.email(size=80) }}<br>
+          {% for error in form.email.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+          {% endfor %}<br>
+      </p>
+
+      <p>
+          Please enter the address/location of your car:<br>
+          {{ form.address_of_car(size=80) }}<br>
+          {% for error in form.email.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+          {% endfor %}<br>
+      </p>
+
+
+      <p><b><br>Please enter the following information on your car:</b></p>
+
+      <p>
+          What is the YEAR of you vehicle?<br>
+          {{ form.year(size=80) }}<br>
+          {% for error in form.year.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+          {% endfor %}<br>
+      </p>
+
+      <p>
+          What is the MAKE of your vehicle? (e.g., Toyota, Nissan)<br>
+          {{ form.make(size=80) }}<br>
+          {% for error in form.make.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+          {% endfor %}<br>
+      </p>
+
+      <p>
+          What is the MODEL of your vehicle? (e.g., Camry, Maxima)<br>
+          {{ form.model(size=80) }}<br>
+          {% for error in form.model.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+          {% endfor %}<br>
+      </p>
+
+      <p>
+          What is the ENGINE TYPE of your vehicle? (e.g, 2.0L - it's ok if you don't know this)<br>
+          {{ form.engine_type(size=80) }}<br>
+          {% for error in form.engine_type.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+          {% endfor %}<br>
+      </p>
+
+      <p>
+          License Plate State and Number (Optional but helpful :-)<br>
+          {{ form.license_plate(size=80) }}<br>
+          {% for error in form.license_plate.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+          {% endfor %}<br>
+      </p>
+
+      <p>
+          What is the COLOR of your Vehicle?<br>
+          {{ form.color(size=80) }}<br>
+          {% for error in form.color.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+          {% endfor %}<br>
+      </p>
+
+
+      <p><b>What services would you like?</b></p>
+
+      <p>{{ form.waterless_wash}} Waterless Carwash - $30 (includes Tire Shine)</p>
+
+      <p>{{ form.interior_clean}} Interior Clean - $30 (vacuum, clean windows, interior wipedown)</p>
+
+      <p>{{ form.full_detail}} Full Detail - $200 (3-4 hours)</p>
+
+      <p>{{ form.oil_change}} Oil Change - $75 (for conventional oil, add $10 and $20 for Synthetic Blend and Full Synthetic)</p>
+
+      <p>{{ form.tire_rotation}} Tire Rotation - $30</p>
+
+      <p>{{ form.brakes}} Brakes - Starts at $499</p>
+
+      <p>{{ form.car_to_dealership}} Just take my car to the dealership/shop for me - $35</p>
+
+      <p>{{ form.state_inspection}} MA state inspection - $60</p>
+
+      <p>{{ form.wiper_replacement}} Wiper Replacement - $35 (add on only)</p>
+
+      <p>{{ form.cabin_air_filter}} Cabin Air Filter replacement - $25 (add on only)</p>
+
+      <p>{{ form.engine_air_filter}} Engine Air Filter replacement - $35 (add on only)</p>
+
+      <p><br>
+          Anything else you want us to know? (Thoughts on services offered or pricing? Anything else you would like us to offer?)<br>
+          {{ form.misc(size=80) }}<br>
+          {% for error in form.misc.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+          {% endfor %}<br>
+      </p>
+
+      <p><input type="submit" value="Submit"></p>
+
+
+  </form>
+{% endblock %}

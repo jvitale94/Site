@@ -1,0 +1,26 @@
+<!-- A base template that includes a title, navigation bar at the top, and then blocked content -->
+
+<html>
+  <head>
+    <!-- If there is a title included in the render_template call, then do this -->
+    {% if title %}
+    <title>{{ title }}</title>
+    {% else %}
+    <title>Odego</title>
+    {% endif %}
+  </head>
+  <body>
+    <!-- displays flashed messages related to validate_on_submit -->
+    {% block content %}{% endblock %}
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <ul>
+    {% for message in messages %}
+        <li>{{ message|safe }} </li>
+    {% endfor %}
+    </ul>
+    {% endif %}
+    {% endwith %}
+    
+  </body>
+</html>
